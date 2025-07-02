@@ -8,10 +8,12 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const deployedFHECounter = await deploy("FHECounter", {
     from: deployer,
     log: true,
+    // args: [], // 如果你的构造函数需要参数，在这里加
   });
 
-  console.log(`FHECounter contract: `, deployedFHECounter.address);
+  console.log(`FHECounter contract deployed at:`, deployedFHECounter.address);
 };
+
 export default func;
 func.id = "deploy_fheCounter"; // id required to prevent reexecution
 func.tags = ["FHECounter"];
